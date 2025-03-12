@@ -1,3 +1,6 @@
 limitations
 - no entries with age <50
 - countries are only 20
+
+
+tree based models dont need standarisation or normalisation
