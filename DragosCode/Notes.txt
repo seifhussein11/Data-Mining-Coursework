@@ -10,6 +10,12 @@ min       50.000000     0.000000       18.500000       30.000000
 max       94.000000    19.000000       35.000000       99.000000
 
 
+There is no missing data and all features have a balanced distribution,
+except for cholesterol (twice as many "normal" as "high"), diabetes (four times as many "No" as "Yes"),
+Alzheimer's diagnosis (~42000 "No" to ~32000 "Yes"), Family history of Alzheimer's (twice as many "No" as "Yes"),
+Genetic Risk Factor (four times as many "No" as "Yes") and hypertension (twice as many "No" as "Yes")
+
+
 Cholesterol: High 0.41 Normal 0.41
 Diabetes: No 0.41 Yes 0.41
 Family History: No 0.37 Yes 0.52
