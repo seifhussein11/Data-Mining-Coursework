@@ -1,0 +1,49 @@
+Descriptive Statistics for Numerical Features:
+	   Age		    Education Level	BMI				Cognitive Test Score
+count  74283.000000 74283.000000  	74283.000000    74283.000000
+mean      71.964703     9.487514       26.780639       64.654241
+std       12.980748     5.757020        4.764679       20.153247
+min       50.000000     0.000000       18.500000       30.000000
+25%       61.000000     4.000000       22.700000       47.000000
+50%       72.000000     9.000000       26.800000       65.000000
+75%       83.000000    14.000000       30.900000       82.000000
+max       94.000000    19.000000       35.000000       99.000000
+
+
+There is no missing data and all features have a balanced distribution,
+except for cholesterol (twice as many "normal" as "high"), diabetes (four times as many "No" as "Yes"),
+Alzheimer's diagnosis (~42000 "No" to ~32000 "Yes"), Family history of Alzheimer's (twice as many "No" as "Yes"),
+Genetic Risk Factor (four times as many "No" as "Yes") and hypertension (twice as many "No" as "Yes")
+
+
+Cholesterol: High 0.41 Normal 0.41
+Diabetes: No 0.41 Yes 0.41
+Family History: No 0.37 Yes 0.52
+Hypertension: No 0.41 Yes 0.41
+Genetic Risk Factor: No 0.37 Yes 0.61
+
+
+Logistic Regression Performance:
+  Accuracy: 0.7153 ± 0.0031
+  F1 Score: 0.6406 ± 0.0029
+  ROC AUC:  0.7907 ± 0.0040
+--------------------------------------------------
+Decision Tree Performance:
+  Accuracy: 0.6362 ± 0.0033
+  F1 Score: 0.5627 ± 0.0045
+  ROC AUC:  0.6259 ± 0.0034
+--------------------------------------------------
+Random Forest Performance:
+  Accuracy: 0.7200 ± 0.0030
+  F1 Score: 0.6537 ± 0.0035
+  ROC AUC:  0.7937 ± 0.0028
+--------------------------------------------------
+Gradient Boosting Performance:
+  Accuracy: 0.7292 ± 0.0035
+  F1 Score: 0.6828 ± 0.0021
+  ROC AUC:  0.8038 ± 0.0043
+--------------------------------------------------
+SVM Performance:
+  Accuracy: 0.6802 ± 0.0034
+  F1 Score: 0.5305 ± 0.0058
+  ROC AUC:  0.7566 ± 0.0034
