@@ -63,4 +63,56 @@ for name, model in models.items():
     print("-" * 50)
     results[name] = cv_results
 
+# Add these imports at the top of your file
+import matplotlib.pyplot as plt
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+import os
+
+# Create directory for saving plots if it doesn't exist
+os.makedirs('confusion_matrices', exist_ok=True)
+
+# Add this code at the end of your existing script
+# Train all models on the training set and create confusion matrices
+plt.figure(figsize=(20, 10))
+
+for i, (name, model) in enumerate(models.items(), 1):
+    # Train the model on the training data
+    model.fit(X_train, y_train)
+    
+    # Generate predictions on validation data
+    y_val_pred = model.predict(X_val)
+    
+    # Create confusion matrix
+    cm = confusion_matrix(y_val, y_val_pred)
+    
+    # Create subplot
+    plt.subplot(2, 3, i)
+    
+    # Display the confusion matrix
+    if hasattr(model, 'classes_'):
+        display_labels = model.classes_
+    else:
+        display_labels = ['No', 'Yes']  # Default labels
+    
+    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=display_labels)
+    disp.plot(cmap=plt.cm.Blues, ax=plt.gca())
+    plt.title(f"Confusion Matrix - {name}")
+    
+    # Save individual confusion matrix
+    plt.figure(figsize=(8, 6))
+    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=display_labels)
+    disp.plot(cmap=plt.cm.Blues)
+    plt.title(f"Confusion Matrix - {name}")
+    plt.tight_layout()
+    plt.savefig(f'confusion_matrices/{name.replace(" ", "_")}_confusion_matrix.png')
+    plt.close()
+
+# Adjust layout and save combined plot
+plt.figure(0)
+plt.tight_layout()
+plt.savefig('confusion_matrices/all_models_confusion_matrices.png')
+plt.show()
+
+print("Confusion matrices saved to 'confusion_matrices' directory")
+
 
